@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add a New Meetup!</title>
+  </head>
+  <h1>Add a New Meetup!</h1>
+  <body>
+    <% if !session[:user_id].nil? %>
+    <form method="post" action="/meetups/new">
+      <label for="name">Name:
+      </label>
+      <input type="text" name="name" id="name" value="<%=@add_event[:name]%>" required/>
+    </br>
+  </br>
+  <label for="location">Location:
+  </label>
+  <input type="text" name="location" id="location" value="<%=@add_event[:location]%>" required/>
+</br>
+</br>
+<label for="description">Description:
+</label>
+<input type="text" name="description" id="description" value="<%=@add_event[:description]%>" required/>
+</br>
+</br>
+<input type="submit" value="Submit" style="padding: 3px 6px;"/>
+</form>
+<% end %>
+</body>
+</html>

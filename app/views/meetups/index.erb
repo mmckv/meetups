@@ -1,0 +1,21 @@
+<h1>Meetups</h1>
+
+<ul>
+  <% @meetups.each do |meetup| %>
+  <li>
+    <a href="/meetups/<%= meetup.id %>">
+      <%= meetup.name %></a>
+  </li>
+  <% end %>
+</ul>
+<body>
+  <% if !session[:user_id].nil? %>
+  <form method="get" action="/meetups/new">
+    <input type="submit" value="Add a new meetup" style="padding: 3px 6px;"/>
+  </form>
+<% else %>
+  <form method="get" action="/auth/github">
+    <input type="submit" value="Sign in to add a new meetup" style="padding: 3px 6px;"/>
+  </form>
+  <% end %>
+</body>
